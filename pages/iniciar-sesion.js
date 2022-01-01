@@ -5,10 +5,10 @@ const Heading = styled.h1`
   color: red;
 `
 
-export default function Home() {
+export default function IniciarSesion() {
   return (
     <Layout >
-      <Heading>Inicio</Heading>
+      <Heading>Iniciar Sesion</Heading>
     </Layout>
   )
 }
