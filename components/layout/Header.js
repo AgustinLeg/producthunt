@@ -6,6 +6,7 @@ import { css } from "@emotion/react";
 import Buscar from "../ui/Buscar";
 import Nav from "./Nav";
 import Boton from "../ui/Boton";
+import { useAuthContext } from "../../context/AuthContext";
 
 const ContenedorHeader = styled.div`
   max-width: 1200px;
@@ -27,7 +28,7 @@ const Logo = styled.p`
 `;
 
 const Header = () => {
-  const user = false;
+  const { currentUser, logout } = useAuthContext()
 
   return (
     <header
@@ -58,16 +59,16 @@ const Header = () => {
             align-items: center;
           `}
         >
-          {user ? (
+          {currentUser ? (
             <>
               <p
                 css={css`
                   margin-right: 2rem;
                 `}
               >
-                Hola Agustin
+                Hola {currentUser.displayName}
               </p>
-              <Boton bgColor>Cerrar Sesion</Boton>
+              <Boton bgColor onClick={() => logout()}>Cerrar Sesion</Boton>
             </>
           ) : (
             <>

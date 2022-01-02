@@ -10,9 +10,9 @@ const useValidacion = (initialState, validar, fn) => {
       const noErrores = Object.keys(errores).length === 0;
 
       if (noErrores) {
+        console.log('fn')
         fn();
       }
-
       setSubmitForm(false);
     }
   }, [errores]);

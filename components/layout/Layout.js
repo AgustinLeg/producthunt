@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./Header";
 import { Global, css } from "@emotion/react";
-import Head from "next/head";
 
 const Layout = ({ children }) => {
   return (
@@ -55,9 +54,6 @@ const Layout = ({ children }) => {
           }
         `}
       />
-      <Head>
-        <title>Product Hunt Firebase y Next.js</title>
-      </Head>
       <Header />
       <main>{children}</main>
     </>

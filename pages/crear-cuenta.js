@@ -9,6 +9,7 @@ import {
 } from "../components/ui/Formulario";
 import useValidacion from "../hooks/useValidacion";
 import validarCrearCuenta from "../validacion/validarCrearCuenta";
+import { useAuthContext } from "../context/AuthContext";
 
 export default function CrearCuenta() {
   const INITIAL_STATE = {
@@ -17,16 +18,21 @@ export default function CrearCuenta() {
     password: "",
   };
 
-  const { values, errores, submitForm, handleSubmit, handleChange, handleBlur } =
-    useValidacion(INITIAL_STATE, validarCrearCuenta, crearCuenta);
+  const { createUser } = useAuthContext();
+  const {
+    values,
+    errores,
+    submitForm,
+    handleSubmit,
+    handleChange,
+    handleBlur,
+  } = useValidacion(INITIAL_STATE, validarCrearCuenta, crearUsuario);
 
   const { nombre, email, password } = values;
 
-  function crearCuenta() {
-    console.log("creando cuenta...");
+  function crearUsuario() {
+    createUser(email, password, nombre);
   }
-
-
 
   return (
     <Layout>
@@ -56,7 +62,7 @@ export default function CrearCuenta() {
           <Campo>
             <label htmlFor="email">Email</label>
             <input
-              type="text"
+              type="email"
               id="email"
               placeholder="Tu Email"
               name="email"
@@ -65,12 +71,12 @@ export default function CrearCuenta() {
               onBlur={handleBlur}
             />
           </Campo>
-                    {errores.email && <Error>{errores.email}</Error>}
+          {errores.email && <Error>{errores.email}</Error>}
 
           <Campo>
             <label htmlFor="password">Contraseña</label>
             <input
-              type="text"
+              type="password"
               id="password"
               placeholder="Tu Contraseña"
               name="password"
