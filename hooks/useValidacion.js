@@ -1,39 +1,39 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
 const useValidacion = (initialState, validar, fn) => {
-  const [values, setValues] = useState(initialState);
-  const [errores, setErrores] = useState({});
-  const [submitForm, setSubmitForm] = useState(false);
+  const [values, setValues] = useState(initialState)
+  const [errores, setErrores] = useState({})
+  const [submitForm, setSubmitForm] = useState(false)
 
   useEffect(() => {
     if (submitForm) {
-      const noErrores = Object.keys(errores).length === 0;
+      const noErrores = Object.keys(errores).length === 0
 
       if (noErrores) {
         console.log('fn')
-        fn();
+        fn()
       }
-      setSubmitForm(false);
+      setSubmitForm(false)
     }
-  }, [errores]);
+  }, [errores])
 
   const handleChange = (e) => {
     setValues({
       ...values,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const erroresValidacion = validar(values);
-    setErrores(erroresValidacion);
-    setSubmitForm(true);
-  };  
+    e.preventDefault()
+    const erroresValidacion = validar(values)
+    setErrores(erroresValidacion)
+    setSubmitForm(true)
+  }
 
   const handleBlur = () => {
-    const erroresValidacion = validar(values);
-    setErrores(erroresValidacion);
+    const erroresValidacion = validar(values)
+    setErrores(erroresValidacion)
   }
 
   return {
@@ -42,8 +42,8 @@ const useValidacion = (initialState, validar, fn) => {
     submitForm,
     handleSubmit,
     handleChange,
-    handleBlur
-  };
-};
+    handleBlur,
+  }
+}
 
-export default useValidacion;
+export default useValidacion

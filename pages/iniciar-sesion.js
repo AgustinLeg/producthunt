@@ -1,36 +1,36 @@
-import React from "react";
-import { css } from "@emotion/react";
-import Layout from "../components/layout/Layout";
+import React from 'react'
+import { css } from '@emotion/react'
+import Layout from '../components/layout/Layout'
 import {
   Formulario,
   Campo,
   InputSubmit,
-  Error,
-} from "../components/ui/Formulario";
-import useValidacion from "../hooks/useValidacion";
-import validarIniciarSesion from "../validacion/validarIniciarSesion";
-import { useAuthContext } from "../context/AuthContext";
+  Error
+} from '../components/ui/Formulario'
+import useValidacion from '../hooks/useValidacion'
+import validarIniciarSesion from '../validacion/validarIniciarSesion'
+import { useAuthContext } from '../context/AuthContext'
 
 const IniciarSesion = () => {
   const INITIAL_STATE = {
-    email: "",
-    password: "",
-  };
+    email: '',
+    password: ''
+  }
 
-  const { login } = useAuthContext();
+  const { login } = useAuthContext()
   const {
     values,
     errores,
     handleSubmit,
     handleChange,
-    handleBlur,
-  } = useValidacion(INITIAL_STATE, validarIniciarSesion, test);
+    handleBlur
+  } = useValidacion(INITIAL_STATE, validarIniciarSesion, test)
 
-  const { email, password } = values;
+  const { email, password } = values
 
-  function test() {
+  function test () {
     console.log('clicked')
-    login(email, password);
+    login(email, password)
   }
 
   return (
@@ -76,7 +76,7 @@ const IniciarSesion = () => {
         </Formulario>
       </>
     </Layout>
-  );
+  )
 }
 
 export default IniciarSesion

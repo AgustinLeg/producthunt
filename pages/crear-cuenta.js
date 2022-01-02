@@ -1,37 +1,31 @@
-import React from "react";
-import { css } from "@emotion/react";
-import Layout from "../components/layout/Layout";
+import React from 'react'
+import { css } from '@emotion/react'
+import Layout from '../components/layout/Layout'
 import {
   Formulario,
   Campo,
   InputSubmit,
   Error,
-} from "../components/ui/Formulario";
-import useValidacion from "../hooks/useValidacion";
-import validarCrearCuenta from "../validacion/validarCrearCuenta";
-import { useAuthContext } from "../context/AuthContext";
+} from '../components/ui/Formulario'
+import useValidacion from '../hooks/useValidacion'
+import validarCrearCuenta from '../validacion/validarCrearCuenta'
+import { useAuthContext } from '../context/AuthContext'
 
 export default function CrearCuenta() {
   const INITIAL_STATE = {
-    nombre: "",
-    email: "",
-    password: "",
-  };
+    nombre: '',
+    email: '',
+    password: '',
+  }
 
-  const { createUser } = useAuthContext();
-  const {
-    values,
-    errores,
-    submitForm,
-    handleSubmit,
-    handleChange,
-    handleBlur,
-  } = useValidacion(INITIAL_STATE, validarCrearCuenta, crearUsuario);
+  const { createUser } = useAuthContext()
+  const { values, errores, handleSubmit, handleChange, handleBlur } =
+    useValidacion(INITIAL_STATE, validarCrearCuenta, crearUsuario)
 
-  const { nombre, email, password } = values;
+  const { nombre, email, password } = values
 
   function crearUsuario() {
-    createUser(email, password, nombre);
+    createUser(email, password, nombre)
   }
 
   return (
@@ -90,5 +84,5 @@ export default function CrearCuenta() {
         </Formulario>
       </>
     </Layout>
-  );
+  )
 }

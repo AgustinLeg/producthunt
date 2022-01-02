@@ -1,6 +1,6 @@
-import Link from "next/link";
-import React from "react";
-import styled from "@emotion/styled";
+import Link from 'next/link'
+import React from 'react'
+import styled from '@emotion/styled'
 
 const Navegacion = styled.nav`
   padding-left: 2rem;
@@ -20,7 +20,7 @@ const Navegacion = styled.nav`
     }
     
   }
-`;
+`
 
 const Nav = () => {
   return (
@@ -35,7 +35,7 @@ const Nav = () => {
         <a>Nuevo Producto</a>
       </Link>
     </Navegacion>
-  );
-};
+  )
+}
 
-export default Nav;
+export default Nav

@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import Layout from '../components/layout/Layout';
+import styled from '@emotion/styled'
+import Layout from '../components/layout/Layout'
 
 const Heading = styled.h1`
   color: red;
@@ -7,7 +7,7 @@ const Heading = styled.h1`
 
 export default function Buscar() {
   return (
-    <Layout >
+    <Layout>
       <Heading>Buscar</Heading>
     </Layout>
   )

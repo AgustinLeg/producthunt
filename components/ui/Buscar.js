@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+import React from 'react'
+import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 
 const InputText = styled.input`
   border: 1px solid var(--gris3);
   padding: 1rem;
   min-width: 300px;
-`;
+`
 
 const ButtonSubmit = styled.div`
   height: 3rem;
@@ -22,7 +22,7 @@ const ButtonSubmit = styled.div`
   border: none;
   cursor: pointer;
   text-indent: -9999px;
-`;
+`
 
 const Buscar = () => {
   return (
@@ -35,7 +35,7 @@ const Buscar = () => {
       <InputText type="text" placeholder="Buscar Productos"/>
       <ButtonSubmit type="submit">Buscar</ButtonSubmit>
     </form>
-  );
-};
+  )
+}
 
-export default Buscar;
+export default Buscar

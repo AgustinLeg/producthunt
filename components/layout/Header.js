@@ -1,12 +1,12 @@
-import React from "react";
-import Link from "next/link";
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+import React from 'react'
+import Link from 'next/link'
+import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 
-import Buscar from "../ui/Buscar";
-import Nav from "./Nav";
-import Boton from "../ui/Boton";
-import { useAuthContext } from "../../context/AuthContext";
+import Buscar from '../ui/Buscar'
+import Nav from './Nav'
+import Boton from '../ui/Boton'
+import { useAuthContext } from '../../context/AuthContext'
 
 const ContenedorHeader = styled.div`
   max-width: 1200px;
@@ -16,7 +16,7 @@ const ContenedorHeader = styled.div`
     display: flex;
     justify-content: space-between;
   }
-`;
+`
 
 const Logo = styled.p`
   color: var(--naranja);
@@ -25,7 +25,7 @@ const Logo = styled.p`
   font-weight: 700;
   font-family: var(--fontPrimary)
   margin-right: 2rem;
-`;
+`
 
 const Header = () => {
   const { currentUser, logout } = useAuthContext()
@@ -59,7 +59,8 @@ const Header = () => {
             align-items: center;
           `}
         >
-          {currentUser ? (
+          {currentUser
+            ? (
             <>
               <p
                 css={css`
@@ -70,7 +71,8 @@ const Header = () => {
               </p>
               <Boton bgColor onClick={() => logout()}>Cerrar Sesion</Boton>
             </>
-          ) : (
+              )
+            : (
             <>
               <Link href="/iniciar-sesion" passHref>
                 <Boton bgColor>Iniciar Sesion</Boton>
@@ -79,11 +81,11 @@ const Header = () => {
                 <Boton>Crear Cuenta</Boton>
               </Link>
             </>
-          )}
+              )}
         </div>
       </ContenedorHeader>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

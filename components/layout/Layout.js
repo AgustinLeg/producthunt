@@ -1,6 +1,6 @@
-import React from "react";
-import Header from "./Header";
-import { Global, css } from "@emotion/react";
+import React from 'react'
+import Header from './Header'
+import { Global, css } from '@emotion/react'
 
 const Layout = ({ children }) => {
   return (
@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
       <Header />
       <main>{children}</main>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

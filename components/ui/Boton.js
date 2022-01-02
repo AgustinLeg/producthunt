@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
 const Boton = styled.a`
     font-weight: 700;
@@ -14,4 +14,4 @@ const Boton = styled.a`
     }
 `
 
-export default Boton;
+export default Boton
